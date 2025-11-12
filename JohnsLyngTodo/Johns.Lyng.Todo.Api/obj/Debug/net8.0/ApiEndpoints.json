@@ -1,0 +1,139 @@
+[
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ItemController",
+    "Method": "Get",
+    "RelativePath": "Item",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ItemController",
+    "Method": "Delete",
+    "RelativePath": "Item",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ItemController",
+    "Method": "Create",
+    "RelativePath": "Item/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ItemController",
+    "Method": "Update",
+    "RelativePath": "Item/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ListController",
+    "Method": "GetListForUser",
+    "RelativePath": "List",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ListController",
+    "Method": "DeleteList",
+    "RelativePath": "List",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "listId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ListController",
+    "Method": "CreateList",
+    "RelativePath": "List/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taskList",
+        "Type": "Johns.Lyng.Todo.Model.TaskList",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.ListController",
+    "Method": "UpdateList",
+    "RelativePath": "List/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taskList",
+        "Type": "Johns.Lyng.Todo.Model.TaskList",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Johns.Lyng.Todo.Api.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Johns.Lyng.Todo.Api.WeatherForecast, Johns.Lyng.Todo.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

@@ -1,0 +1,11 @@
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\bin\Debug\net8.0\Johns.Lyng.Todo.ViewModel.deps.json
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\bin\Debug\net8.0\Johns.Lyng.Todo.ViewModel.dll
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\bin\Debug\net8.0\Johns.Lyng.Todo.ViewModel.pdb
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\Johns.Lyng.Todo.ViewModel.GeneratedMSBuildEditorConfig.editorconfig
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\Johns.Lyng.Todo.ViewModel.AssemblyInfoInputs.cache
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\Johns.Lyng.Todo.ViewModel.AssemblyInfo.cs
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\Johns.Lyng.Todo.ViewModel.csproj.CoreCompileInputs.cache
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\Johns.Lyng.Todo.ViewModel.dll
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\refint\Johns.Lyng.Todo.ViewModel.dll
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\Johns.Lyng.Todo.ViewModel.pdb
+H:\Projects\JohnsLyng\JohnsLyngTodo\Johns.Lyng.Todo.ViewModel\obj\Debug\net8.0\ref\Johns.Lyng.Todo.ViewModel.dll
