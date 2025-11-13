@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Johns.Lyng.Todo.Model\Johns.Lyng.Todo.Model.csproj" />
+    <ProjectReference Include="..\Johns.Lyng.Todo.ViewModel\Johns.Lyng.Todo.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>

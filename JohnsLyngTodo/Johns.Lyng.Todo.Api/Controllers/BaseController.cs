@@ -1,10 +1,11 @@
-﻿using Johns.Lyng.Todo.Api.DataStore;
+﻿using Johns.Lyng.Todo.Api.Controllers.Interfaces;
+using Johns.Lyng.Todo.Api.DataStore;
 using Johns.Lyng.Todo.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Johns.Lyng.Todo.Api.Controllers
 {
-    public class BaseController : ControllerBase
+    public class BaseController : ControllerBase, IController
     {
         public List<User> Users { get; set; }
         public InMemory DataStore { get; set; }

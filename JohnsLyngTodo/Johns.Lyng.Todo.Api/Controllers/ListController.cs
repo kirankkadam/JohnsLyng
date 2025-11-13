@@ -1,4 +1,4 @@
-﻿using Johns.Lyng.Todo.Model;
+﻿using Johns.Lyng.Todo.Api.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Johns.Lyng.Todo.Api.Controllers
@@ -12,43 +12,62 @@ namespace Johns.Lyng.Todo.Api.Controllers
         public async Task<IActionResult> GetListForUser(int userId)
         {
             var taskListOfUser = DataStore.TaskLists.Where(tl => tl.OwnerId == userId).ToList();
-            if (taskListOfUser.Count == 0)
+            if (taskListOfUser == null || taskListOfUser.Count == 0)
             {
                 return NoContent();
             }
-            return Ok(taskListOfUser);
+
+            var vmTaskLists = new List<ViewModel.TaskList>();
+            foreach (var taskList in taskListOfUser)
+            {
+                vmTaskLists.Add(Conversion.Instance.ConvertToViewModelTaskList(taskList));
+            }
+
+            return Ok(vmTaskLists);
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> CreateList(TaskList taskList)
+        public async Task<IActionResult> CreateList(ViewModel.TaskList taskList)
         {
             if (taskList == null)
             {
                 return BadRequest();
             }
 
-            DataStore.TaskLists.Add(new TaskList()
+            taskList.Id = GetIdForTaskList();
+            DataStore.TaskLists.Add(Conversion.Instance.ConvertToModelTaskList(taskList));
+            var vmTaskLists = new List<ViewModel.TaskList>();
+            foreach (var tl in DataStore.TaskLists)
             {
-                Id = taskList.Id,
-                Title = taskList.Title,
-                Description = taskList.Description,
-                OwnerId = taskList.OwnerId,
-                CreatedBy = taskList.CreatedBy,
-                CreatedOn = DateTime.UtcNow
-            });
+                vmTaskLists.Add(Conversion.Instance.ConvertToViewModelTaskList(tl));
+            }
 
-            return Ok();
+            return Ok(vmTaskLists);
         }
 
         [HttpPost("Update")]
-        public async Task<IActionResult> UpdateList(TaskList taskList)
+        public async Task<IActionResult> UpdateList(ViewModel.TaskList taskList)
         {
             if (taskList == null)
             {
                 return BadRequest();
             }
+            var item = DataStore.TaskLists.FirstOrDefault(tl => tl.Id.Equals(taskList.Id));
+            if (item == null)
+            {
+                return NoContent();
+            }
 
-            return Ok();
+            DataStore.TaskLists.Remove(item);
+            DataStore.TaskLists.Add(Conversion.Instance.ConvertToModelTaskList(taskList));
+
+            var vmTaskLists = new List<ViewModel.TaskList>();
+            foreach (var tl in DataStore.TaskLists)
+            {
+                vmTaskLists.Add(Conversion.Instance.ConvertToViewModelTaskList(tl));
+            }
+
+            return Ok(vmTaskLists);
         }
 
         [HttpDelete]
@@ -59,14 +78,32 @@ namespace Johns.Lyng.Todo.Api.Controllers
                 return BadRequest();
             }
 
-            var item = DataStore.TaskLists.FirstOrDefault(tl=>tl.Id.Equals(listId));
+            var item = DataStore.TaskLists.FirstOrDefault(tl => tl.Id.Equals(listId));
             if (item == null)
             {
                 return NoContent();
             }
 
             DataStore.TaskLists.Remove(item);
-            return Ok();
+            var vmTaskLists = new List<ViewModel.TaskList>();
+            foreach (var tl in DataStore.TaskLists)
+            {
+                vmTaskLists.Add(Conversion.Instance.ConvertToViewModelTaskList(tl));
+            }
+
+            return Ok(vmTaskLists);
+        }
+
+        private int GetIdForTaskList()
+        {
+            var id = 1;
+            if (DataStore.TaskLists.Count > 0)
+            {
+                var maxId = DataStore.TaskLists.Select(tl => tl.Id).Max();
+                id = maxId + 1;
+            }
+
+            return id;
         }
     }
 }

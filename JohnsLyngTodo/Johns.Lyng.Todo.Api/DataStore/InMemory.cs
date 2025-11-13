@@ -6,7 +6,7 @@ namespace Johns.Lyng.Todo.Api.DataStore
     {
 
         private static InMemory _instance;
-        private static List<TaskList> _taskLists { get; set; }
+        private static List<UserTaskList> _taskLists { get; set; }
 
         private InMemory()
         {
@@ -20,14 +20,14 @@ namespace Johns.Lyng.Todo.Api.DataStore
                 if (_instance == null)
                 {
                     _instance = new InMemory();
-                    _taskLists = new List<TaskList>();
+                    _taskLists = new List<UserTaskList>();
                 }
                 return _instance;
             }
         }
 
 
-        public List<TaskList> TaskLists
+        public List<UserTaskList> TaskLists
         {
             get
             {

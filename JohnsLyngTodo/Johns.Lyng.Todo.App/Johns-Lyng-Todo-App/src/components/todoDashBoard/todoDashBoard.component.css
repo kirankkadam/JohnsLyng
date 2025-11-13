@@ -1,0 +1,47 @@
+/* Base grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px; /* Equal space between all items */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Grid items */
+.grid-item {
+  background-color: #3498db;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+  /* Hover effect */
+  .grid-item:hover {
+    transform: scale(1.05);
+  }
+
+  /* Different size variations */
+  .grid-item.small {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+
+  .grid-item.medium {
+    grid-row: span 1;
+    grid-column: span 2;
+  }
+
+  .grid-item.large {
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+
+/* Make grid responsive */
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

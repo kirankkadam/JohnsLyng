@@ -1,0 +1,59 @@
+@defer(on timer (500ms)){
+<h3>Create New Task List</h3>
+<form #frmTaskList="ngForm">
+  <div class="row">
+    <div class="col-12">
+      <input type="text" id="title" name="title" placeholder="List title" class="form-control" [(ngModel)]="NewTaskList.title">
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" (click)="createNewList()">Create Task List</button>
+    </div>
+  </div>
+</form>
+<div class="grid-container">
+  <div *ngFor="let list of TodoLists" class="card grid-item small">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-10">
+          <strong class="card-title">{{ list.title }}</strong>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-danger btn-sm" (click)="deleteList(list.id)">X</button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let item of list.tasks" class="list-group-item d-flex justify-content-between">
+        <h5>{{ item.title }}</h5>
+        <button class="btn btn-warning btn-sm" (click)="deleteItem(item.id, list.id)">X</button>
+        <hr />
+      </div>
+      <hr />
+      <div class="input-group vstack gap-1">
+        <form #frmTaskItem="ngForm">
+          <div class="p-1">
+            <input type="text" id="title" name="title" class="form-control" placeholder="Title" [(ngModel)]="NewTask.title" />
+            <!--<input type="text" id="description" name="description" class="form-control" placeholder="Description" [(ngModel)]="NewTask.description" />-->
+          </div>
+          <div class="p-1">
+            <button class="btn btn-sm btn-success" (click)="addItem(NewTask, list)">Add New Item</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-success" *ngIf="ShowNoListsMessage">
+  Currently there are no TODO lists to display.
+</div>
+}
+@placeholder(minimum 500ms){
+<div class="alert alert-warning">Loading...</div>
+}@loading(after 100ms; minimum 1s){
+<div class="alert alert-primary">Loading...</div>
+}
+@error{
+<div class="alert alert-danger">Error loading component</div>
+}
+
